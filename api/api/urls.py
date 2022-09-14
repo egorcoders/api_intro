@@ -1,10 +1,17 @@
 from django.contrib import admin
-from django.urls import path
+from django.db import router
+from django.urls import path, include
 
-from api_test import views
+from quickstart import views
 
+from rest_framework import routers
+
+my_router = routers.DefaultRouter()
+
+my_router.register(r'users', views.UserViewSet)
+my_router.register(r'groups', views.GroupViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/v1/women', views.WomanAPIView.as_view())
+    path('', include(my_router.urls)),
 ]
