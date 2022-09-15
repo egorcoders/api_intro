@@ -1,8 +1,19 @@
 from rest_framework import serializers
-from .models import Women
+
+class WomenModel:
+    def __init__(self, name, job):
+        self.name = name
+        self.job = job
 
 
-class WomenSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Women
-        fields = ('title', 'category')
+class CategorySerializer(serializers.Serializer):
+    name = serializers.CharField(max_length=255)
+
+
+def encode():
+    model = WomenModel('Masha', 'Engineer')
+    model_s = CategorySerializer(model)
+    print(model_s.data)
+
+
+encode()
