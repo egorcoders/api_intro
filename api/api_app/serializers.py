@@ -5,4 +5,4 @@ from .models import Women
 class WomenSerializer(serializers.ModelSerializer):
     class Meta:
         model = Women
-        fields = ('title', 'category')
+        fields = ('title',)
