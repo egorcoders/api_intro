@@ -5,8 +5,8 @@ class Women(models.Model):
     title = models.CharField(max_length=250, help_text='Имя женщины')
     content = models.CharField(max_length=200)
     time_create = models.DateTimeField(auto_now_add=True)
-    time_update = models.DateTimeField(auto_now=True)
     category = models.ForeignKey('Category', on_delete=models.CASCADE, null=True)
+    time_update = models.DateTimeField(auto_now=True)
     is_published = models.BooleanField(default=True)
 
 
