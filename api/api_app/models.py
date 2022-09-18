@@ -6,8 +6,8 @@ class Women(models.Model):
     content = models.CharField(max_length=200)
     time_create = models.DateTimeField(auto_now_add=True)
     time_update = models.DateTimeField(auto_now=True)
-    is_published = models.BooleanField(default=True)
     category = models.ForeignKey('Category', on_delete=models.CASCADE, null=True)
+    is_published = models.BooleanField(default=True)
 
 
 def __str__(self):
