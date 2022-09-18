@@ -1,12 +1,17 @@
 from django.contrib import admin
 
 from .models import Women, Category
-from api.settings import DEFAULT_NUMBER
 
 
 @admin.register(Women)
 class WomenAdmin(admin.ModelAdmin):
     list_display = ('title', 'content')
+    search_fields = ('title',)
+    search_help_text = 'Ищет бабу по названию'
 
 
-admin.site.register(Category)
+@admin.register(Category)
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = ('name',)
+    search_fields = ('name',)
+

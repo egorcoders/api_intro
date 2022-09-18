@@ -1,5 +1,8 @@
 from rest_framework import serializers
 
+from api.api_app.models import Women
+
+
 # class WomenModel:
 #     def __init__(self, name, job):
 #         self.name = name
@@ -8,7 +11,10 @@ from rest_framework import serializers
 #
 # class CategorySerializer(serializers.Serializer):
 #     name = serializers.CharField(max_length=255)
-#
+
+class CategorySerializer(serializers.Serializer):
+
+
 #
 # def encode():
 #     model = WomenModel('Masha', 'Engineer')
@@ -17,3 +23,8 @@ from rest_framework import serializers
 #
 #
 # encode()
+
+class WomenSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Women
+        fields = '__all__'
