@@ -9,8 +9,9 @@ class Women(models.Model):
     is_published = models.BooleanField(default=True)
     category = models.ForeignKey('Category', on_delete=models.CASCADE, null=True)
 
-    def __str__(self):
-        return self.title[:2]
+
+def __str__(self):
+    return self.title[:2]
 
 
 class Category(models.Model):
