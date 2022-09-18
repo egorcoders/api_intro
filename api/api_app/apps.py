@@ -6,5 +6,5 @@ class ApiAppConfig(AppConfig):
     name = 'api_app'
 
 '''
-This word will work as a word and our class ApiAppConfig as AppConfig
+This word will work as a a word and our class ApiAppConfig as AppConfig
 '''
