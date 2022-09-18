@@ -1,7 +1,6 @@
-from django.shortcuts import render
 from rest_framework import generics
-from api.api_app.models import Women
 
+from api.api_app.models import Women
 from .serializers import WomenSerializer
 
 
