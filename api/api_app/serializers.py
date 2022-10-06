@@ -1,7 +1,7 @@
-from rest_framework import serializers
+from django.http import Http404
+from rest_framework import generics, serializers
 
-from api.api_app.models import Women
-
+from .models import Women, Record
 
 # class WomenModel:
 #     def __init__(self, name, job):
@@ -12,7 +12,7 @@ from api.api_app.models import Women
 # class CategorySerializer(serializers.Serializer):
 #     name = serializers.CharField(max_length=255)
 
-class CategorySerializer(serializers.Serializer):
+# class CategorySerializer(serializers.Serializer):
 
 
 #
@@ -28,3 +28,13 @@ class WomenSerializer(serializers.ModelSerializer):
     class Meta:
         model = Women
         fields = '__all__'
+
+#
+# class RecordRetrieveView(generics.RetrieveAPIView):
+#     serializer_class = RecordSerializer
+#
+#     def get_object(self):
+#         try:
+#             return Record.objects.get(id=self.request.query_params['id'])
+#         except Record.DoesNotExist:
+#             raise Http404()

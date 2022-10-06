@@ -9,16 +9,30 @@ class Women(models.Model):
     time_update = models.DateTimeField(auto_now=True)
     is_published = models.BooleanField(default=True)
 
+    class Meta:
+        abstract = True
 
-def __str__(self):
-    return self.title[:2]
+    def __str__(self):
+        return self.title[:2]
+
+
+class MarriedWomen(Women):
+    title = models.CharField(max_length=250, help_text='Имя заможней женщины')
+
+
+class DivorcedWomen(Women):
+    title = models.CharField(max_length=250, help_text='Имя разведенной женщины')
 
 
 class Category(models.Model):
     name = models.CharField(max_length=100)
 
-    def professions(self):
-        return ''.join(c.name for c in self.category.all())
-
     def __str__(self):
         return self.name[:5]
+
+
+class Record(models.Model):
+    # id will be created automatically
+    name = models.CharField(max_length=255)
+    created_at = models.DateTimeField(auto_now_add=True)
+    is_deleted = models.BooleanField(default=False)
