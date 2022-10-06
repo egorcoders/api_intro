@@ -1,10 +1,17 @@
 from django.contrib import admin
 
-from .models import Women, Category
+from .models import MarriedWomen, Category, DivorcedWomen
 
 
-@admin.register(Women)
-class WomenAdmin(admin.ModelAdmin):
+@admin.register(MarriedWomen)
+class MarriedWomen(admin.ModelAdmin):
+    list_display = ('title', 'content')
+    search_fields = ('title',)
+    search_help_text = 'Ищет бабу по названию'
+
+
+@admin.register(DivorcedWomen)
+class DivorcedWomen(admin.ModelAdmin):
     list_display = ('title', 'content')
     search_fields = ('title',)
     search_help_text = 'Ищет бабу по названию'
